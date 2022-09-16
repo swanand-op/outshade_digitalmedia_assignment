@@ -1,6 +1,6 @@
 # outshade_digitalmedia_assignment
 
-A new Flutter project.
+An assignment from outshade digitalmedia.
 
 ## Getting Started
 
