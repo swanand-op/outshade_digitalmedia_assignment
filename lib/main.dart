@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:outshade_digitalmedia_assignment/fill_data.dart';
+import 'package:outshade_digitalmedia_assignment/display.dart';
 
 void main() {
   runApp(const MyApp());
@@ -99,7 +99,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       leading: Text(_users[index]["id"]),
                       title: Text(_users[index]["name"]),
                       trailing: ElevatedButton(
-                        onPressed: () {openDialog();},
+                        onPressed: () {
+                          openDialog();
+                          User user = User(id: _users[index]["id"], name: _users[index]["name"], age: ageController.text, gender: genderController.text);
+                          },
                         child: Text('Sign in'),
                       ),
                     );
@@ -119,3 +122,7 @@ void _navigateToFillData(BuildContext context){
   Navigator.of(context).push(MaterialPageRoute(builder: (context) => FillData()));
 }
 
+class User {
+  final String id, name, age, gender;
+  User({required this.id, required this.name, required this.age, required this.gender});
+}
